@@ -33,7 +33,7 @@ module.exports = {
 
 		// Logic
 		"no-self-compare": "warn",
-		eqeqeq: "error",
+		"eqeqeq": "error",
 
 		// Mistakes
 		"no-template-curly-in-string": "error",
