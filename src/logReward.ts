@@ -11,7 +11,7 @@ interface Reward {
 }
 
 export async function logReward(reward:Reward, rewards:Reward[]){
-	if(!process.env.WEBHOOK_URL){
+	if(!process.env?.WEBHOOK_URL){
 		throw new Error("No webhook URL provided");
 	}
 
