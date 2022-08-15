@@ -1,30 +1,30 @@
 module.exports = {
 	env: {
 		browser: true,
-		es2021: true,
+		es2021: true
 	},
 	extends: [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"prettier",
+		"prettier"
 	],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaVersion: "latest",
-		sourceType: "module",
+		sourceType: "module"
 	},
 	plugins: ["@typescript-eslint"],
 	rules: {
 		// Semicolons
-		semi: "error",
+		"semi": "error",
 		"semi-style": ["error", "last"],
 
 		// Spaces / Tabs
-		indent: ["error", "tab"],
+		"indent": ["error", "tab"],
 		"no-trailing-spaces": "error",
 
 		// Comments
-		"multiline-comment-style": ["error", "seperate-lines"],
+		"multiline-comment-style": ["error", "separate-lines"],
 		"spaced-comment": "error",
 
 		// Variables
@@ -34,7 +34,7 @@ module.exports = {
 		// Logic
 		"no-self-compare": "warn",
 		"eqeqeq": "error",
-		'@typescript-eslint/no-var-requires': 0,
+		"@typescript-eslint/no-var-requires": 0,
 
 		// Mistakes
 		"no-template-curly-in-string": "error",
@@ -47,8 +47,8 @@ module.exports = {
 			"error",
 			{
 				before: true,
-				after: true,
-			},
-		],
-	},
+				after: true
+			}
+		]
+	}
 };

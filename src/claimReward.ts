@@ -14,7 +14,6 @@ interface Reward {
 }
 
 export async function claimReward(rewardURL: string) {
-
 	Log("Starting claimReward");
 
 	const browser = await puppeteer.launch();
@@ -64,12 +63,11 @@ export async function claimReward(rewardURL: string) {
 
 	// Logging
 	appData.rewards.splice(rewardToClaimNum - 1, 1);
-	if(config.logRewards) logReward(rewardToClaim, appData.rewards);
+	if (config.logRewards) logReward(rewardToClaim, appData.rewards);
 
 	browser.close();
 
 	Log("Finished claimReward");
-
 }
 
 function getRewardRanking(reward: Reward) {

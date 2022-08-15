@@ -24,7 +24,7 @@ export async function login() {
 		async function (res: any) {
 			const userCode: string = res.userCode ?? res.user_code;
 			Log(`Got auth code: ${userCode}`);
-			const verificationUri = res.verificationUri ?? res.verification_uri;
+			// const verificationUri = res.verificationUri ?? res.verification_uri;
 			await bypassAuth(userCode);
 		}
 	);

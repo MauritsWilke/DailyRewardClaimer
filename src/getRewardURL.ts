@@ -3,7 +3,7 @@ import { Log, sleep } from "./utils.js";
 const REWARD_ITEM_SLOT = 31;
 
 export async function getRewardURL(client: Bot): Promise<string | undefined> {
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		client.chat("/delivery");
 
 		client.once("windowOpen", async (window) => {

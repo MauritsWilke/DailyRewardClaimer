@@ -11,10 +11,5 @@
 			"title": "> div:nth-child(2) > span"
 		}
 	},
-	"priority": [
-		"LEGENDARY",
-		"EPIC",
-		"RARE",
-		"COMMON"
-	]
+	"priority": ["LEGENDARY", "EPIC", "RARE", "COMMON"]
 }

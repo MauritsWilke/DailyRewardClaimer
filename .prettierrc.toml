@@ -1,0 +1,18 @@
+# Tabs
+tabWidth = 4
+useTabs = true
+
+# Semicolons
+semi = true
+
+# Quotes
+singleQuote = false
+quoteProps = "consistent"
+
+# Commas
+trailingComma = "none"
+
+# Brackets
+bracketSpacing = true
+bracketSameLine = false
+arrowParens = "always"
