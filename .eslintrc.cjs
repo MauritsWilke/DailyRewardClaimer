@@ -24,7 +24,7 @@ module.exports = {
 		"no-trailing-spaces": "error",
 
 		// Comments
-		"multiline-comment-style": ["error", "starred-block"],
+		"multiline-comment-style": ["error", "seperate-lines"],
 		"spaced-comment": "error",
 
 		// Variables
@@ -34,6 +34,7 @@ module.exports = {
 		// Logic
 		"no-self-compare": "warn",
 		"eqeqeq": "error",
+		'@typescript-eslint/no-var-requires': 0,
 
 		// Mistakes
 		"no-template-curly-in-string": "error",

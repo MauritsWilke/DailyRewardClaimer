@@ -1,9 +1,12 @@
 {
 	"compilerOptions": {
-		"resolveJsonModule": true,
-		"moduleResolution": "node",
-		"esModuleInterop": true,
+		"strict": true,
 		"module": "esnext",
-		"target": "ESNext"
-	}
+		"target": "esnext",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["./src"],
+	"exclude": ["node_modules"]
 }
