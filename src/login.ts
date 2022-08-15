@@ -1,11 +1,15 @@
 import { createBot } from "mineflayer";
 import pkg from "prismarine-auth";
+import { bypassAuth } from "./bypassAuth.js";
+import { Log } from "./utils.js";
 const { Authflow, Titles } = pkg;
 
 export async function login() {
 	if (!process.env?.EMAIL) {
 		throw new Error("No email provided");
 	}
+
+	Log("Started login");
 
 	const flow = new Authflow(
 		"",
@@ -17,10 +21,11 @@ export async function login() {
 		},
 
 		/* eslint-disable @typescript-eslint/no-explicit-any */
-		function (res: any) {
-			const userCode = res.userCode ?? res.user_code;
+		async function (res: any) {
+			const userCode: string = res.userCode ?? res.user_code;
+			Log(`Got auth code: ${userCode}`);
 			const verificationUri = res.verificationUri ?? res.verification_uri;
-			console.log(verificationUri, userCode);
+			await bypassAuth(userCode);
 		}
 	);
 
@@ -37,6 +42,8 @@ export async function login() {
 		port: 25565,
 		version: "1.8"
 	});
+
+	Log("Finished login");
 
 	return bot;
 }

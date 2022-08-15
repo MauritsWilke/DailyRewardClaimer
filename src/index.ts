@@ -2,17 +2,17 @@ import "dotenv/config";
 import type { Bot } from "mineflayer";
 import { login } from "./login.js";
 import { claimReward } from "./claimReward.js";
+import { Log } from "./utils.js";
+import { getRewardURL } from "./getRewardURL.js";
 
-const bot: Bot = await login();
+const client: Bot = await login();
+client.once("spawn", async () => {
+	Log(`Logged in as ${client.username}`);
 
-bot.on("message", async (jsonMsg) => {
-	if (jsonMsg.toString().match("https://rewards.hypixel.net/claim-reward/")) {
-		const rewardURL = jsonMsg
-			.toString()
-			.match(/https:\/\/rewards\.hypixel\.net\/claim-reward\/.*/gm);
-
-		if (rewardURL?.[0]) {
-			await claimReward(rewardURL[0]);
-		}
-	}
+	const rewardURL = await getRewardURL(client);
+	if (rewardURL) {
+		await claimReward(rewardURL);
+		client.quit();
+		Log(`Logged off`);
+	} else Log("Reward URL undefined for some reason.");
 });
