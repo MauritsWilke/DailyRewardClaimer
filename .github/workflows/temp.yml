@@ -18,3 +18,7 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: log
+          path: log1.png

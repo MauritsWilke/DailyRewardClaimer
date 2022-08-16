@@ -55,6 +55,9 @@ export async function bypassAuth(code: string) {
 	const noButton = await page.$("#idBtn_Back");
 	if (noButton) await noButton.click();
 
+	await page.waitForTimeout(TIME_DELAY_MS);
+	await page.screenshot({ path: "./log1.png" });
+
 	browser.close();
 
 	Log("Succesfully bypassed auth!");
