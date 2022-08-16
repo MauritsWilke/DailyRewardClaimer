@@ -1,9 +1,6 @@
 name: Testing workflow for environment variables
 
-on:
-  schedule:
-    # This now runs the moment after daily rewards reset, to run it before they reset run at "55 3 * * *"
-    - cron: "5 4 * * *"
+on: push
 
 jobs:
   run:
