@@ -23,7 +23,9 @@ export async function bypassAuth(code: string) {
 	const inputField = await page.$("#otc");
 	if (!inputField) throw new Error("Failed to find input field");
 	await inputField.type(code);
-	await page.keyboard.press("Enter");
+	await page.keyboard.press("Enter").then(() => {
+		Log("Succesfully entered code");
+	});
 
 	await page.waitForTimeout(TIME_DELAY_MS);
 
@@ -31,7 +33,9 @@ export async function bypassAuth(code: string) {
 	const emailField = await page.$("#i0116");
 	if (!emailField) throw new Error("Failed to find email field");
 	await emailField.type(process.env.EMAIL);
-	await page.keyboard.press("Enter");
+	await page.keyboard.press("Enter").then(() => {
+		Log("Succesfully entered email");
+	});
 
 	await page.waitForTimeout(TIME_DELAY_MS);
 
@@ -39,11 +43,15 @@ export async function bypassAuth(code: string) {
 	const passwordField = await page.$("#i0118");
 	if (!passwordField) throw new Error("Failed to find email field");
 	await passwordField.type(process.env.PASSWORD);
-	await page.keyboard.press("Enter");
+	await page.keyboard.press("Enter").then(() => {
+		Log("Succesfully entered password");
+	});
 
 	await page.waitForTimeout(TIME_DELAY_MS);
 
-	await page.waitForSelector("#idBtn_Back", { timeout: 2000 });
+	await page.waitForSelector("#idBtn_Back", { timeout: 2000 }).catch(() => {
+		/** */
+	});
 	const noButton = await page.$("#idBtn_Back");
 	if (noButton) await noButton.click();
 
