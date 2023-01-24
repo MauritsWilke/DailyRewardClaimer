@@ -63,7 +63,7 @@ export async function claimReward(rewardURL: string) {
 
 	// Logging
 	appData.rewards.splice(rewardToClaimNum - 1, 1);
-	if (config.logRewards) logReward(rewardToClaim, appData.rewards);
+	if (config.logRewards) logReward(rewardToClaim, appData.rewards, appData.dailyStreak);
 
 	browser.close();
 
