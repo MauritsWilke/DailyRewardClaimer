@@ -26,7 +26,7 @@ export async function logReward(reward: Reward, rewards: Reward[], dailyStreak: 
 	Log("Started reward log");
 
 	const content = config.logFull
-		? `\`\`\`🎉 Successfully claimed ${reward.about}!\n\n✨ Your other rewards were:\n • ${rewards[0].about}\n • ${rewards[1].about}\n\n🔥 Your current streak: ${dailyStreak.score}\n💯 Your highest streak: ${dailyStreak.highScore}\`\`\``
+		? `\`\`\`🎉 Successfully claimed ${reward.about}!\n\n✨ Your other rewards were:\n • ${rewards[0].about}\n • ${rewards[1].about}\n\n🔥 Your current streak: ${(dailyStreak.score ?? 0) + 1}\n💯 Your highest streak: ${dailyStreak.highScore}\`\`\``
 		: `:tada: Successfully claimed \`${reward.about}!\``;
 
 	fetch(process.env.WEBHOOK_URL, {
